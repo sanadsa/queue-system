@@ -1,3 +1,9 @@
-<p>
-  customers-list works!
-</p>
+<mat-list role="list">
+  <mat-list-item
+    *ngFor="let customer of customers"
+    role="listitem"
+    (click)="addCustomer(customer)"
+    >{{ customer?.FirstName }}
+    {{ customer?.LastName }}
+  </mat-list-item>
+</mat-list>

@@ -1,3 +1,15 @@
-<p>
-  customers-queue works!
-</p>
+<button
+  mat-raised-button
+  color="primary"
+  [disabled]="customersInQueue.length === 0"
+  (click)="finishCustomer()"
+>
+  POP
+</button>
+
+<mat-list role="list">
+  <mat-list-item *ngFor="let customer of customersInQueue" role="listitem">
+    {{ customer?.FirstName }}
+    {{ customer?.LastName }}
+  </mat-list-item>
+</mat-list>

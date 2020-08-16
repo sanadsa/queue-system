@@ -1,3 +1,6 @@
-<p>
-  finished-customers works!
-</p>
+<mat-list role="list">
+  <mat-list-item *ngFor="let customer of finishedCustomers" role="listitem">
+    {{ customer?.FirstName }}
+    {{ customer?.LastName }}
+  </mat-list-item>
+</mat-list>

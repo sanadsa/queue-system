@@ -1,8 +1,11 @@
-<p>
-  queue-layout works!
-</p>
 <div class="queue-layout">
-  <customers-list></customers-list>
-  <customers-queue></customers-queue>
-  <finished-customers></finished-customers>
+  <customers-list (customerToQueue)="onCustomerToAdd($event)"></customers-list>
+  <customers-queue
+    [customersInQueue]="customersInQueue"
+    [customerToAdd]="customerToAdd"
+    (customerToFinish)="onCustomerToFinish($event)"
+  ></customers-queue>
+  <finished-customers
+    [finishedCustomer]="finishedCustomer"
+  ></finished-customers>
 </div>
