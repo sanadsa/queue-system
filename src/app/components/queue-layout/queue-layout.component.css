@@ -1,0 +1,4 @@
+.queue-layout {
+  display: flex;
+  justify-content: space-around;
+}
