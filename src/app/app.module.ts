@@ -8,6 +8,7 @@ import { FinishedCustomersComponent } from "./components/finished-customers/fini
 import { QueueLayoutComponent } from "./components/queue-layout/queue-layout.component";
 import { MatListModule } from "@angular/material/list";
 import { MatButtonModule } from "@angular/material/button";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -17,7 +18,7 @@ import { MatButtonModule } from "@angular/material/button";
     FinishedCustomersComponent,
     QueueLayoutComponent,
   ],
-  imports: [BrowserModule, MatListModule, MatButtonModule],
+  imports: [BrowserModule, MatListModule, MatButtonModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })

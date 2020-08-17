@@ -1,3 +1,4 @@
+import { CustomerService } from "./../../services/customer-service.service";
 import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 import { Customer } from "src/app/models/customer";
 
@@ -7,12 +8,7 @@ import { Customer } from "src/app/models/customer";
   styleUrls: ["./customers-list.component.css"],
 })
 export class CustomersListComponent implements OnInit {
-  customers: Customer[] = [
-    { ID: "123", FirstName: "jason", LastName: "statham" },
-    { ID: "143", FirstName: "jason2", LastName: "statham2" },
-    { ID: "1233", FirstName: "jason3", LastName: "statham3" },
-    { ID: "1235", FirstName: "jason4", LastName: "statham4" },
-  ];
+  customers: Customer[] = [];
 
   @Output() customerToQueue = new EventEmitter<Customer>();
 
@@ -24,7 +20,11 @@ export class CustomersListComponent implements OnInit {
     }
   }
 
-  constructor() {}
+  constructor(private service: CustomerService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.service.getCustomers().subscribe((res) => {
+      this.customers = res;
+    });
+  }
 }
