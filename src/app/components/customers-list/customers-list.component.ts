@@ -8,7 +8,11 @@ import { Customer } from "src/app/models/customer";
   styleUrls: ["./customers-list.component.css"],
 })
 export class CustomersListComponent implements OnInit {
-  customers: Customer[] = [];
+  customers: Customer[] = [
+    { ID: "143", FirstName: "itamar", LastName: "daisy" },
+    { ID: "1233", FirstName: "sanad", LastName: "satel" },
+    { ID: "1235", FirstName: "omer", LastName: "cohen" },
+  ];
 
   @Output() customerToQueue = new EventEmitter<Customer>();
 
@@ -23,8 +27,8 @@ export class CustomersListComponent implements OnInit {
   constructor(private service: CustomerService) {}
 
   ngOnInit() {
-    this.service.getCustomers().subscribe((res) => {
-      this.customers = res;
-    });
+    // this.service.getCustomers().subscribe((res) => {
+    //   this.customers = res;
+    // });
   }
 }
